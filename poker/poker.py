@@ -1,4 +1,5 @@
-hand = input("What is you card? ")
+#hand = input("What card do you have in the Hand? ")
+hand = 'AS,10C,10H,3D,3S'
 
 def evaluate_hands(str):
 
@@ -6,27 +7,19 @@ def evaluate_hands(str):
     # The suit for each card in the hand
     letters = [hand[i][1:] for i in range(5)] 
     # The number for each card in the hand
-    numbers = [int(hand[i][:1]) for i in range(5)]  
+    numbers = [hand[i][:-1] for i in range(5)]  
+    
 
     # Repetitions count for each number
     rnum = [numbers.count(i) for i in numbers] 
 
     # Repetitions count for each letter 
     rlet = [letters.count(i) for i in letters]  
-    if rnum.count(2) == 4:
-        return 'two pair'
-    elif 3 in rnum:
-        return 'three of a kind'
-    elif 4 in rnum:
-        return 'four of a kind'
-    elif sorted(rnum) == [2,2,3,3,3]:
-        return 'full house'
-    elif rnum.count(2) == 2:
-        return 'pair'
-    elif max(numbers) - min(numbers) ==4:
-        return 'straight'
-    else:
-        return 'Nothing'
-
+    return numbers
+    
+def converter(number):
+    if num == 'A':
+        return 14
+    if
 
 print(evaluate_hands(hand))
